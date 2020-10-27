@@ -20,9 +20,9 @@ pm_caption += "ι'ℓℓ вє ωιтн му мαѕтєя тιℓℓ му ∂уи
 pm_caption += "[ ┏┓━┏┓━━━━┏┓━┏┓━━━━━\n ┃┃━┃┃━━━━┃┃━┃┃━━━━━\n ┃┗━┛┃┏━━┓┃┃━┃┃━┏━━┓\n ┃┏━┓┃┃┏┓┃┃┃━┃┃━┃┏┓┃ \n ┃┃━┃┃┃┃━┫┃┗┓┃┗┓┃┗┛┃ \n ┗┛━┗┛┗━━┛┗━┛┗━┛┗━━┛](https://t.me/Dark_cobra_support_group)"
 #@command(outgoing=True, pattern="^.mello$")
 @borg.on(admin_cmd(pattern=r"mello"))
-async def amireallyalive(mello):
-    chat = await alive.get_chat()
-    await alive.delete()
+async def amireallyalive(alive):
+    chat = await mello.get_chat()
+    await mello.delete()
     """ For .mello command, check if the bot is running.  """
     await borg.send_file(mello.chat_id, PM_IMG,caption=pm_caption)
-    await alive.delete() 
+    await mello.delete() 
