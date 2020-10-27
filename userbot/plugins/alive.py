@@ -5,7 +5,7 @@ from userbot import ALIVE_NAME
 from telethon.tl.types import ChannelParticipantsAdmins
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Hell User"
 PM_IMG = "https://telegra.ph/file/624bc140c03e9c28afcca.jpg"
-pm_caption = "👿 **Hêllẞø† Is Online** 👿\n"
+pm_caption = "👿 **Marshmello ßot Is Online** 👿\n"
 
 pm_caption += f"**M Y  B O S S **              : {DEFAULTUSER}\n"
 
@@ -19,7 +19,7 @@ pm_caption += "😈Hêll ẞø†😈               : Ɩɛɠɛŋɖʂ ßòt𖤐�
 
 pm_caption += "'ℓℓ вє ωιтн му мαѕтєя тιℓℓ му ∂уиσ єи∂ѕ!!☠ 𖤐⃟🛰\n ραят σғ тнε נσυяηεү ιs тнε εη∂\n\n"
 
-pm_caption += " [██████╗░░░░░░██╗\n ██╔══██╗░░░░░██║\n ██║░░██║░░░░░██║\n ██║░░██║██╗░░██║\n ██████╔╝╚█████╔╝\n ╚═════╝░░╚════╝░\n](https://https://t.me/Spammers_OP)\n"
+pm_caption += " [██████╗░░░░░░██╗\n ██╔══██╗░░░░░██║\n ██║░░██║░░░░░██║\n ██║░░██║██╗░░██║\n ██████╔╝╚█████╔╝\n ╚═════╝░░╚════╝░\n](https://https://t.me/Marshmellobot_official)\n"
 #@command(outgoing=True, pattern="^.mello$")
 @borg.on(admin_cmd(pattern=r"alive"))
 async def amireallyalive(alive):
