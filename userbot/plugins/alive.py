@@ -18,11 +18,11 @@ pm_caption += "ρутнσи                       : ρутнσи-3.8.5 𖤐⃟�
 pm_caption += "ι'ℓℓ вє ωιтн му мαѕтєя тιℓℓ му ∂уиσ єи∂ѕ!!☠ 𖤐⃟🛰\n ραят σғ тнε נσυяηεү ιs тнε εη∂\n"
 
 pm_caption += "[ ┏┓━┏┓━━━━┏┓━┏┓━━━━━\n ┃┃━┃┃━━━━┃┃━┃┃━━━━━\n ┃┗━┛┃┏━━┓┃┃━┃┃━┏━━┓\n ┃┏━┓┃┃┏┓┃┃┃━┃┃━┃┏┓┃ \n ┃┃━┃┃┃┃━┫┃┗┓┃┗┓┃┗┛┃ \n ┗┛━┗┛┗━━┛┗━┛┗━┛┗━━┛](https://t.me/Dark_cobra_support_group)"
-#@command(outgoing=True, pattern="^.alive$")
-@borg.on(admin_cmd(pattern=r"alive"))
-async def amireallyalive(alive):
+#@command(outgoing=True, pattern="^.mello$")
+@borg.on(admin_cmd(pattern=r"mello"))
+async def amireallyalive(mello):
     chat = await alive.get_chat()
     await alive.delete()
-    """ For .alive command, check if the bot is running.  """
-    await borg.send_file(alive.chat_id, PM_IMG,caption=pm_caption)
+    """ For .mello command, check if the bot is running.  """
+    await borg.send_file(mello.chat_id, PM_IMG,caption=pm_caption)
     await alive.delete() 
