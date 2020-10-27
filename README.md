@@ -1,16 +1,21 @@
-# †hê Hêllẞø†
-This is a userbot made for telegram. I made this userbot with help of all other userbots available in telegram. All credits goes to its Respective Owners....
+# 𐌑𐌀𐍂𐍃𐋏𐌑𐌄𐌋𐌋𐍈
 
-This is the one and only official HellBot Userbot made by [@Kraken_The_BadASS](https://t.me/kraken_the_badass) Also join support channel and group :- https://t.me/HellBot_Official Enjoy Your Bot!!💝
+Marshmello Is Most Powerful And awaited Bot 
+
+#About
+
+It is a userbot made for telegram. I made this userbot with help of all other userbots available in telegram. Credit Goes To Hellboi_atul and Hellboy-op
+
+This is the one and only official Marshmello Userbot made by [boss_DJ](https://t.me/Beast_boy_shubu) Also join support channel and group :- https://t.me/Marshmellobot_official
 
 
-# The owner would not be responsible for any kind of bans due to the bot...
+# WE Are Not Responsible For Account Bans..
 
 
 # For any query:-
-### [Join Here For Any Query](https://t.me/hellbot_official)
+### [Join Here](https://t.me/Marshmellobot_official)
 
-# FORK AT YOUR OWN RISK
+# Before Fork Ask Permission
 ## Installing
 
 ### The Easy Way
@@ -20,13 +25,11 @@ This is the one and only official HellBot Userbot made by [@Kraken_The_BadASS](h
 
 ### [String #1](https://Hellbot.hellboyop.repl.run)
 
-### [String #2](https://Hellbot2.hellboyop.repl.run)
-
 ## The Normal Way
 
 Simply clone the repository and run the main file:
 ```sh
-git clone https://github.com/HellBoy-OP/HellBot
+git clone https://github.com/shubhanshdj/Marshmello
 cd HellBot
 virtualenv -p /usr/bin/python3 venv
 . ./venv/bin/activate
