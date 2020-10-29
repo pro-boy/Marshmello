@@ -1,8 +1,3 @@
-#"""Update UserBot Code (FOR DARKCOBRA USERBOT)
-#Syntax: .update
-#\nAll Credits goes to © @hellboi_atul
-#\nFor this awasome plugin.\nPorted from PpaperPlane Extended"""
-
 """Syntax: .update
 \nAll Credits goes to © @Three_Cube_TeKnoways
 \nFor this awasome plugin.\nPorted from PpaperPlane Extended"""
@@ -32,9 +27,9 @@ IS_SELECTED_DIFFERENT_BRANCH = (
     "please check out to an official branch, and re-start the updater."
 )
 
-OFFICIAL_UPSTREAM_REPO = "https://github.com/DARK-COBRA/DARKCOBRA.git"
+OFFICIAL_UPSTREAM_REPO = "https://github.com/shubhanshdj/Marshmello.git"
 
-BOT_IS_UP_TO_DATE = "`The userbot is up-to-date.\nThank you for Using this Service.`"
+BOT_IS_UP_TO_DATE = "`our marshmello up-to-date.\nThank you for USING US.`"
 NEW_BOT_UP_DATE_FOUND = (
     "new update found for {branch_name}\n"
     "changelog: \n\n{changelog}\n"
@@ -61,7 +56,7 @@ async def generate_change_log(git_repo, diff_marker):
 
 async def deploy_start(tgbot, message, refspec, remote):
     await message.edit(RESTARTING_APP)
-    await message.edit("Updating and Deploying New Branch. Please wait for 5 minutes then use `.alive` to check if i'm working or not.")
+    await message.edit("Updating and Deploying New Branch. Please wait for 10 to 20 minutes then use `.mello` to check if i'm working or not.")
     await  remote.push(refspec="HEAD:refs/heads/master", force=True)
     await tgbot.disconnect()
     os.execl(sys.executable, sys.executable, *sys.argv)
