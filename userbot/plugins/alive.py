@@ -7,7 +7,7 @@ DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Hell User"
 PM_IMG = "https://telegra.ph/file/624bc140c03e9c28afcca.jpg"
 pm_caption = "👿 **Marshmello Is Online** 👿\n"
 
-pm_caption += "I am Alive My Master {DEFAULTUSER} I will Help you In Any problem\n"
+pm_caption += "Hey Master I am ALIVE i will help you in any problem\n"
 
 pm_caption +=  f"**M Y  B O S S **              : {DEFAULTUSER}\n"
 
