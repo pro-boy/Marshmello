@@ -4,7 +4,7 @@ Marshmello Is Most Powerful And awaited Bot
 
 # About
 
-It is a userbot made for telegram. I made this userbot with help of all other userbots available in telegram. Credit Goes To Hellboi_atul and Hellboy-op
+It is a userbot made for telegram. I made this userbot with help of Dark Cobra userbot. Credit Goes To Hellboi_atul.
 
 This is the one and only official Marshmello Userbot made by [boss_DJ](https://t.me/Beast_boy_shubu) Also join support channel and group :- https://t.me/Marshmellobot_official
 
@@ -20,7 +20,7 @@ This is the one and only official Marshmello Userbot made by [boss_DJ](https://t
 
 ### The Easy Way
 
-<a href="https://dashboard.heroku.com/new?button-url=https%3A%2F%2Fgithub.com%2FHellBoy-OP%2FHellBot&template=https%3A%2F%2Fgithub.com%2FHellBoy-OP%2FHellBot" rel="nofollow" style="background-color: initial; box-sizing: border-box; color: #0366d6; text-decoration-line: none;"><img alt="Deploy" data-canonical-src="https://www.herokucdn.com/deploy/button.svg" src="https://camo.githubusercontent.com/83b0e95b38892b49184e07ad572c94c8038323fb/68747470733a2f2f7777772e6865726f6b7563646e2e636f6d2f6465706c6f792f627574746f6e2e737667" style="border-style: none; box-sizing: initial; max-width: 100%;" /></a></div>
+<a href="https://dashboard.heroku.com" rel="nofollow" style="background-color: initial; box-sizing: border-box; color: #0366d6; text-decoration-line: none;"><img alt="Deploy" data-canonical-src="https://www.herokucdn.com/deploy/button.svg" src="https://camo.githubusercontent.com/83b0e95b38892b49184e07ad572c94c8038323fb/68747470733a2f2f7777772e6865726f6b7563646e2e636f6d2f6465706c6f792f627574746f6e2e737667" style="border-style: none; box-sizing: initial; max-width: 100%;" /></a></div>
 # Generate String Session From Below Links:-
 
 ### [String #1](https://Hellbot.hellboyop.repl.run)
