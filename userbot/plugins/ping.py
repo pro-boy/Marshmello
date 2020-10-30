@@ -4,7 +4,7 @@ from datetime import datetime
 from .. import ALIVE_NAME, CMD_HELP
 from ..utils import admin_cmd, edit_or_reply, sudo_cmd
 
-DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Hell User"
+DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Marshmello User"
 
 
 @borg.on(admin_cmd(pattern=f"hbping$", outgoing=True))
@@ -55,7 +55,7 @@ async def _(event):
     )
 
 
-@borg.on(admin_cmd(pattern="ping$"))
+@borg.on(admin_cmd(pattern="Ding$"))
 async def _(event):
     if event.fwd_from:
         return
@@ -64,7 +64,7 @@ async def _(event):
     end = datetime.now()
     ms = (end - start).microseconds / 1000
     await event.edit(
-        f"__**✦҈͜͡➳ Pong!__**\n★ {ms}\n★ __**My**__ __**Master**__ [{DEFAULTUSER}]"
+        f"__**✦҈͜͡➳ D O N G!__**\n★ {ms}\n★ __**My**__ __**Master**__ [{DEFAULTUSER}]"
     )
 
 
@@ -73,7 +73,7 @@ CMD_HELP.update(
         "ping": "__**PLUGIN NAME :** Ping__\
     \n\n📌** CMD ★** `.hping`\
     \n**USAGE   ★  **A kind ofping with extra animation\
-    \n\n📌** CMD ★** `.ping`\
+    \n\n📌** CMD ★** `.ding`\
     \n**USAGE   ★  **Shows you the ping speed of server"
     }
 )
