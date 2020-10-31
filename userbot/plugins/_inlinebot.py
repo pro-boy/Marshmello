@@ -36,7 +36,7 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
             # https://t.me/TelethonChat/115200
             await event.edit(buttons=buttons)
         else:
-            reply_pop_up_alert = "Get your own userbot, don't use Mine\n Check @Dark_cobra_support For The Source!"
+            reply_pop_up_alert = "Get your own userbot, don't use Mine\n Check @Marshmellobot_official For The Source!"
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
 
@@ -121,4 +121,4 @@ def paginate_help(page_number, loaded_plugins, prefix):
              custom.Button.inline("Next>>>", data="{}_next({})".format(prefix, modulo_page)))
         ]
     return pairs
-# Hey kangers, how r uh..🤣🤣 Tumhari mkb
+
