@@ -9,17 +9,17 @@ pm_caption = "**𐌑𐌀𐍂𐍃𐋏𐌑𐌄𐌋𐌋𐍈 is ONLINE\n\n"
 
 pm_caption += "ι αм αℓινє мγ ρєяο мαѕτєя ωιτн иєϲєѕѕαяγ ∂γиοѕ 😘\n\n"
 
-pm_caption += "sᴜᴘᴘᴏʀᴛ ɢʀᴏᴜᴘ           : [ᴊᴏɪɴ](https://t.me/marshmellobot_official)\n"
+pm_caption += "sᴜᴘᴘᴏʀᴛ ɢʀᴏᴜᴘ : [ᴊᴏɪɴ](https://t.me/marshmellobot_official)\n"
 
-pm_caption += "sᴜᴘᴘᴏʀᴛ ᴄʜᴀɴɴᴇʟ        : [ᴊᴏɪɴ](https://t.me/marshmello_userbot)\n"
+pm_caption += "sᴜᴘᴘᴏʀᴛ ᴄʜᴀɴɴᴇʟ : [ᴊᴏɪɴ](https://t.me/marshmello_userbot)\n"
 
-pm_caption += "ᴘʏᴛʜᴏɴ              : 3.5.8 ᴘʏᴛʜᴏɴ 𖤐⃟🔷\n"
+pm_caption += "ᴘʏᴛʜᴏɴ : 3.5.8 ᴘʏᴛʜᴏɴ 𖤐⃟🔷\n"
 
-pm_caption += "Mʏ Bᴏᴛ Sᴛᴀᴛᴜꜱ        : Wᴏʀᴋɪɴɢ ᴘᴇʀғᴇᴄᴛʟʏ 🔥\n"
+pm_caption += "Mʏ Bᴏᴛ Sᴛᴀᴛᴜꜱ : Wᴏʀᴋɪɴɢ ᴘᴇʀғᴇᴄᴛʟʏ 🔥\n"
 
-pm_caption += "тєℓєтнσи                   : тєℓєтнσи-15.0.0 𖤐⃟🔷\n"
+pm_caption += "тєℓєтнσи : тєℓєтнσи-15.0.0 𖤐⃟🔷\n"
 
-pm_caption += f"**My Master         : {DEFAULTUSER}\n\n"
+pm_caption += f"**My Master : {DEFAULTUSER}\n\n"
 
 pm_caption += " [██████╗░░░░░░██╗\n ██╔══██╗░░░░░██║\n ██║░░██║░░░░░██║\n ██║░░██║██╗░░██║\n ██████╔╝╚█████╔╝\n ╚═════╝░░╚════╝░\n](https://t.me/Marshmello_userbot)"
 
