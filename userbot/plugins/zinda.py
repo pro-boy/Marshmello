@@ -3,7 +3,7 @@ from telethon import events
 from userbot.utils import admin_cmd
 from userbot import ALIVE_NAME
 from telethon.tl.types import ChannelParticipantsAdmins
-DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Unknown"
+DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Don't Change This"
 PM_IMG = "https://telegra.ph/file/c735db5b11ded78784257.jpg"
 pm_caption = "**𐌑𐌀𐍂𐍃𐋏𐌑𐌄𐌋𐌋𐍈 is ONLINE\n\n"
 
