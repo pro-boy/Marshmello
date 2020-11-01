@@ -13,7 +13,7 @@ pm_caption += "sᴜᴘᴘᴏʀᴛ ɢʀᴏᴜᴘ           : [ᴊᴏɪɴ](https:/
 
 pm_caption += "sᴜᴘᴘᴏʀᴛ ᴄʜᴀɴɴᴇʟ        : [ᴊᴏɪɴ](https://t.me/marshmello_userbot)\n"
 
-pm_caption += "ᴘʏᴛʜᴏɴ                  : 3.5.8 ᴘʏᴛʜᴏɴ
+pm_caption += "ᴘʏᴛʜᴏɴ                  : 3.5.8 ᴘʏᴛʜᴏɴ"
 
 pm_caption += f"**My Master**        : {DEFAULTUSER}\n"
 
