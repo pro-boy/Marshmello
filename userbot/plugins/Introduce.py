@@ -21,7 +21,7 @@ async def _(event):
               "[ㅤ](https://telegra.ph/file/57ee16ad9cde95a55c0c1.jpg)",
               "**Marshmello Is Very Powerful and awaited Userbot**",
               "**Type `.help` To see my Commands I Have +400 plugins*",
-              "****",
+              "**Change By Your**",
               "**Count your 👏 life 👤 by 😈 smiles, 😀 not 🚫 tears. 😭 Count your 👏 age 👵 by 😈 friends, 👫 not 🚫 years. 📅 Happy 😊 birthday 🎂!**",
               "**I hope 🙏 all 💯 your 👏 birthday 🎂 wishes and 👏 dreams 🔚 come true. 💯**",
               "**Another 🔄 adventure filled 😏 year 🎉 awaits you. 👈 Welcome it 💯 by 😈 celebrating 🚫 your 👏 birthday 🎂 with 👏 pomp and 👏 splendor. Wishing you 👈 a 👌 very 👌 happy 😊 and 👏 fun-filled birthday 🎂!**",
