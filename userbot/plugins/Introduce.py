@@ -21,7 +21,7 @@ async def _(event):
               "[ㅤ](https://telegra.ph/file/57ee16ad9cde95a55c0c1.jpg)",
               "**Marshmello Is Very Powerful and awaited Userbot**",
               "**Type `.help` To see my Commands I Have +400 plugins*",
-              "**you can fork this bot easilyr**"  
+              "**you can fork this bot easily**"  
           ]
     for i in animation_ttl:#By @hellojibot for MARSHMELLO
         	
