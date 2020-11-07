@@ -57,6 +57,16 @@
       "value": "",
       "required": false
     },
+    "PM_DATA": {
+      "description": "Write DISABLE if you want to disable pm permit else leave it blank...",
+      "value": "",
+     "required": false
+    },
+     "CUSTOM_PMPERMIT": {
+      "description": "Custom middle pm permit text... May skip..doesn't really matter...",
+      "value": "",
+     "required": false
+    },
     "APP_ID": {
       "description": "Get this value from my.telegram.org! Don't Put Others May Your Account ban.",
       "value": ""
