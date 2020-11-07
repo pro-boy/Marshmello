@@ -62,7 +62,7 @@ async def _(event):
 
           if response.text.startswith("Forward"):
 
-             await event.edit("```can you kindly disable your forward privacy settings for good?```")
+             await event.edit("```can't do due user privacy settings```")
 
           else: 
 
