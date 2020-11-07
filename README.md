@@ -23,7 +23,7 @@ This is the one and only official Marshmello Userbot made by [boss_DJ](https://t
  <a href="https://heroku.com/deploy?template=https://github.com/shubhanshdj/Marshmello/blob/main"> <img src="https://www2.assets.heroku.com/assets/elements/elements-buttons-2-4867044559069b937ba0fd078f5604f310a49928bd1b59fb3d2f0ff96e0d97c8.svg" alt="Deploy to Heroku" /></a></p>
 # Generate String Session From Below Links:-
 
-### String #1
+### [String session](https://repl.it/@DjDuvvado/marshmello-4#main.py)
 
 ## The Normal Way
 
