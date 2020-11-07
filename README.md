@@ -30,7 +30,7 @@ This is the one and only official Marshmello Userbot made by [boss_DJ](https://t
 Simply clone the repository and run the main file:
 ```sh
 git clone https://github.com/shubhanshdj/Marshmello
-cd HellBot
+cd marshmello
 virtualenv -p /usr/bin/python3 venv
 . ./venv/bin/activate
 pip install -r requirements.txt
