@@ -93,18 +93,16 @@ async def on_afk(event):
         msg = None# Originally by @NOOB_GUY_OP
 # I think its first for DARKCOBRA
         message_to_reply = (
-            f"__My Master Has Been In afk since__ `{total_afk_time}`\nWhere He Is: I don't know dear friend..he is a too busy person "
-            + f"\n\n__I can't guarantee you that when he will come..__\n**REASON**: {reason}"
+            f"__My ßoss is currently offline since__ `{total_afk_time}`\nWhere He Is: y u want to know 🧐🧐 just tag if imp🙏🙂 "
+            + f"\n\n__Till then Leave your Name,Reason and 100B-200B💲 and hopefully you'll get a reply🤩 within 100 light years🙂.⭕️Ohh!!He left a REASON BTW🧐: 🔥✨ SoLolv ✨🔥__\n**REASON**: {reason}"
             if reason
-            else f"**Heyy!**\n__I am currently unavailable. Since when, you ask? For {total_afk_time} I think.__\n\nWhen will I be back? Soon __Whenever I feel like coming back__**(o(^▽^)o)**  "
+            else f"**My ßoss is currently offline**\n\n__Where He Is: y u want to know 🧐🧐 just tag if imp🙏🙂{total_afk_time}__\n\nWhen will I be back? Soon __Whenever I feel like coming back__**(o(^▽^)o)**  "
         )
         msg = await event.reply(message_to_reply, file=pic)
         await asyncio.sleep(5)
         if event.chat_id in last_afk_message:  # pylint:disable=E0602
             await last_afk_message[event.chat_id].delete()  # pylint:disable=E0602
         last_afk_message[event.chat_id] = msg  # pylint:disable=E0602
-
-
 @borg.on(admin_cmd(pattern=r"mafk (.*) (.*)", outgoing=True))  # pylint:disable=E0602
 async def _(event):
     if event.fwd_from:
