@@ -45,7 +45,7 @@ async def set_not_afk(event):
             await borg.send_message(  # pylint:disable=E0602
                 Config.PRIVATE_GROUP_BOT_API_ID,  # pylint:disable=E0602
                 "#AFKFALSE \nSet AFK mode to False\n"
-                + "__Back alive!__\n**No Longer afk.**\n `Was afk for:``"
+                + "__I am Back Alive__\n**No Longer afk.**\n `Was afk for:``"
                 + total_afk_time
                 + "`",
             )
@@ -117,8 +117,8 @@ async def on_afk(event):
         #           afk_since = f"`{int(seconds)}s` **ago**"
         msg = None
         message_to_reply = (
-            f"__My Master Has Been In afk since__ `{total_afk_time}`\nWhere He Is: I don't know buddy..he is a busy person "
-            + f"\n\n__I can't guarantee you that when he will come..__\n**REASON**: {reason}"
+            f"__My ßoss is currently Offline since__ `{total_afk_time}`\n\n Where He Is: y u want to know 🧐🧐 just tag if imp🙏🙂"
+            + f"\n\n__Till then Leave your Name,Reason and 100B-200B💲 and hopefully you'll get a reply🤩 within 100 light years🙂.⭕️Ohh!!He left a REASON BTW🧐: 🔥✨ SoLolv ✨🔥__\n\n**REASON**: {reason}"
             if reason
             else f"**Heyy!**\n__I am currently unavailable. Since when, you ask? For {total_afk_time} I guess.__\n\nWhen will I be back? Soon __Whenever I feel like coming back__**(o(^▽^)o)**  "
         )
