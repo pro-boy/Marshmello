@@ -9,7 +9,7 @@ import asyncio
 async def _(event):
      if not event.text[0].isalpha() and event.text[0] not in ("/", "#", "@", "!"):
         await event.edit("Badshah")
-        await asyncio.sleep(0.5)
+        await asyncio.sleep(1.0)
         await event.edit("Ki")
         await asyncio.sleep(0.5)
         await event.edit("Gali")
@@ -32,5 +32,5 @@ async def _(event):
         await asyncio.sleep(0.6)
         await event.edit("Tera Baap")
         await asyncio.sleep(0.8)
-        await event.edit("ATGK @CRiMiNaL786")
+        await event.edit("tera baap marshmello userbot the pero bot")
         await asyncio.sleep(0.9)
