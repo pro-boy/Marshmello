@@ -6,7 +6,7 @@ Marshmello Is Most Powerful And awaited Bot
 
 It is a userbot made for telegram. I made this userbot with help of Dark Cobra userbot. Credit Goes To Hellboi_atul.
 
-This is the one and only official Marshmello Userbot made by [boss_DJ](https://t.me/beast_boy_shubh) Also join support channel and group :- https://t.me/Marshmellobot_official
+This is the one and only official Marshmello Userbot made by [boss_DJ](https://t.me/beast_boy_shubh) Also join support channel and group :- https://t.me/Marshmellobot_officiall
 
 
 # Wᴇ Aʀᴇ Nᴏᴛ Rᴇsᴘᴏɴsɪʙʟᴇ Fᴏʀ Aᴄᴄᴏᴜɴᴛ Bᴀɴs.
