@@ -93,8 +93,8 @@ async def on_afk(event):
         msg = None# Originally by @NOOB_GUY_OP
 # I think its first for DARKCOBRA
         message_to_reply = (
-            f"__My ßoss is currently offline since__ `{total_afk_time}`\nWhere He Is: y u want to know 🧐🧐 just tag if imp🙏🙂 "
-            + f"\n\n__Till then Leave your Name,Reason and 100B-200B💲 and hopefully you'll get a reply🤩 within 100 light years🙂.⭕️Ohh!!He left a REASON BTW🧐: 🔥✨ SoLolv ✨🔥__\n**REASON**: {reason}"
+            f"__My ßoss is currently offline since__ `{total_afk_time}`\nWhere He Is: y u want to know 🧐🧐 just tag if imp🙏🙂\n\n "
+            + f"\n\n__Till then Leave your Name,Reason and 100B-200B💲 and hopefully you'll get a reply🤩 within 100 light years🙂.\n ⭕️Ohh!!He left a REASON BTW🧐: {reason}"
             if reason
             else f"**My ßoss is currently offline**\n\n__Where He Is: y u want to know 🧐🧐 just tag if imp🙏🙂{total_afk_time}__\n\nWhen will I be back? Soon __Whenever I feel like coming back__**(o(^▽^)o)**  "
         )
