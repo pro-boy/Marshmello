@@ -1,6 +1,6 @@
 # 𐌑𐌀𐍂𐍃𐋏𐌑𐌄𐌋𐌋𐍈
 
-Marshmello Is Most Powerful And awaited Bot
+Marshmello Is Most Powerful And awaited Bot.
 
 # About
 
