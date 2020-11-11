@@ -876,13 +876,7 @@ async def vapor(vpr):
             else:
                 reply_text.append(charac)
 
-        await vpr.edit("".join(reply_text))
-
-			  
-@register(outgoing=True, pattern="^.repo$")
-async def source(e):
-    if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
-        await e.edit("Click [here](https://github.com/Dark-Princ3/X-tra-Telegram) to open this lit af repo.")
+        await vpr.edit("".join(reply_text))			  
 			  
 			  
 @register(outgoing=True, pattern="^.str(?: |$)(.*)")
