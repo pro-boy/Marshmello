@@ -29,7 +29,7 @@ async def cmd_list(event):
                         out_file,
                         force_document=True,
                         allow_cache=False,
-                        caption="**COMMANDS** In MARSHMELLO",
+                        caption="**COMMANDS** In DARKCOBRA",
                         reply_to=reply_to_id
                     )
                     await event.delete()
@@ -45,7 +45,7 @@ async def cmd_list(event):
             else:
                 await event.edit(input_str + " is not a valid plugin!")
         else:
-            help_string = f"""𐌑A𐍂𐍃𐋏𐌑ELL𐍈 userbot Helper menu Provided by ✨{DEFAULTUSER}✨ \n
+            help_string = f"""Marshmello Userbot.. Helper menu Provided by✨{DEFAULTUSER}✨ \n
 Userbot ✨ Just type .help (plugin name) or tap on plugin and reveal..\n Support Group - @Marshmellobot_officiall\n"""
             results = await bot.inline_query(  # pylint:disable=E0602
                 tgbotusername,
@@ -73,7 +73,7 @@ async def _(event):
     result = await borg(functions.help.GetConfigRequest())  # pylint:disable=E0602
     result = result.stringify()
     logger.info(result)  # pylint:disable=E0602
-    await event.edit("""Telethon UserBot Powered by @marshmellobot_official""")
+    await event.edit("""Telethon UserBot Powered by @Marshmellobot_officiall""")
 
 
 @borg.on(admin_cmd(pattern="syntax (.*)"))
@@ -84,7 +84,7 @@ async def _(event):
 
     if plugin_name in CMD_LIST:
         help_string = CMD_LIST[plugin_name].__doc__
-        unload_string = f"Use `.unload {plugin_name}` to remove this plugin.\n           @Marshmellobot_official"
+        unload_string = f"Use `.unload {plugin_name}` to remove this plugin.\n           @Marshmellobot_officiall©"
         
         if help_string:
             plugin_syntax = f"Syntax for plugin **{plugin_name}**:\n\n{help_string}\n{unload_string}"
