@@ -55,7 +55,7 @@ async def _(event):
     )
 
 
-@borg.on(admin_cmd(pattern="ping$"))
+@borg.on(admin_cmd(pattern="marsh$"))
 async def _(event):
     if event.fwd_from:
         return
@@ -64,7 +64,7 @@ async def _(event):
     end = datetime.now()
     ms = (end - start).microseconds / 1000
     await event.edit(
-        f"__**꧁ Pong! ꧂__**\n\n   ⚘ {ms}\n   ⚘ __**My**__ __**Master**__ [{DEFAULTUSER}]"
+        f"__**꧁ Mello! ꧂__**\n\n   ⚘ {ms}\n   ⚘ __**My**__ __**Master**__ [{DEFAULTUSER}]"
     )
 
 
@@ -73,7 +73,7 @@ CMD_HELP.update(
         "ping": "__**PLUGIN NAME :** Ping__\
     \n\n📌** CMD ★** `.hping`\
     \n**USAGE   ★  **A kind ofping with extra animation\
-    \n\n📌** CMD ★** `.ping`\
+    \n\n📌** CMD ★** `.mars`\
     \n**USAGE   ★  **Shows you the ping speed of server"
     }
 )
