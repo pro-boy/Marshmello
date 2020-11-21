@@ -52,7 +52,7 @@ Userbot ✨ Just type .help (plugin name) or tap on plugin and reveal..\n Suppor
                 help_string
             )
             await results[0].click(
-                event.chat_id,
+            event.chat_id,
                 reply_to=event.reply_to_msg_id,
                 hide_via=True
             )
