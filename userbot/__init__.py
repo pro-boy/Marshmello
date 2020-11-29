@@ -1,11 +1,12 @@
-
+import time
 import os
 import sys
 from telethon.sessions import StringSession
 from telethon import TelegramClient
-from userbot.helpers import functions as darkdef
-
+from userbot.helper import functions as darkdef
 from var import Var
+from userbot.functions import dcfunction as topfunc
+
 
 os.system("pip install --upgrade pip")
 if Var.STRING_SESSION:
@@ -15,9 +16,8 @@ else:
     session_name = "startup"
     bot = TelegramClient(session_name, Var.APP_ID, Var.API_HASH)
 
-
+Lastupdate = time.time()
 CMD_LIST = {}
-# for later purposes
 CMD_HELP = {}
 INT_PLUG = ""
 LOAD_PLUG = {}
@@ -130,7 +130,7 @@ if bool(ENV):
     # Upstream Repo
     UPSTREAM_REPO_URL = os.environ.get(
     "UPSTREAM_REPO_URL",
-    "https://github.com/HellBoy-OP/HellBot.git")
+    "https://github.com/DARK-COBRA/DARKCOBRA.git")
 
     # Last.fm Module
     BIO_PREFIX = os.environ.get("BIO_PREFIX", None)
@@ -178,12 +178,12 @@ for binary, path in binaries.items():
     os.chmod(path, 0o755)
 
 # Global Variables
+
 COUNT_MSG = 0
 USERS = {}
 COUNT_PM = {}
 LASTMSG = {}
+SUDO_LIST = {}
 CMD_HELP = {}
 ISAFK = False
 AFKREASON = None
-
-
