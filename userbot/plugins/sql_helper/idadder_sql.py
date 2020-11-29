@@ -1,4 +1,4 @@
-rom sqlalchemy import Column, String
+from sqlalchemy import Column, String
 
 from . import BASE, SESSION
 
