@@ -3,7 +3,7 @@ from telethon import events
 from pathlib import Path
 from var import Var
 from userbot import LOAD_PLUG
-from userbot import CMD_LIST
+from userbot import CMD_LIST, SUDO_LIST
 import re
 import logging
 import inspect
@@ -156,27 +156,42 @@ def remove_plugin(shortname):
     except:
         raise ValueError
 
-def admin_cmd(pattern=None, **args):
+def admin_cmd(pattern=None, command=None, **args):
     args["func"] = lambda e: e.via_bot_id is None
     stack = inspect.stack()
     previous_stack_frame = stack[1]
     file_test = Path(previous_stack_frame.filename)
     file_test = file_test.stem.replace(".py", "")
     allow_sudo = args.get("allow_sudo", False)
-
     # get the pattern from the decorator
     if pattern is not None:
-        if pattern.startswith("\#"):
+        if pattern.startswith(r"\#"):
             # special fix for snip.py
             args["pattern"] = re.compile(pattern)
-        else:
-            
-            args["pattern"] = re.compile(Config.COMMAND_HAND_LER + pattern)
-            reg =Config.COMMAND_HAND_LER[1]
-            cmd = (reg +pattern).replace("$", "").replace("\\", "").replace("^", "")
+        elif pattern.startswith(r"^"):
+            args["pattern"] = re.compile(pattern)
+            cmd = pattern.replace("$", "").replace("^", "").replace("\\", "")
             try:
                 CMD_LIST[file_test].append(cmd)
-            except:
+            except BaseException:
+                CMD_LIST.update({file_test: [cmd]})
+        else:
+            if len(Config.COMMAND_HAND_LER) == 2:
+                darkreg = "^" + Config.COMMAND_HAND_LER
+                reg = Config.COMMAND_HAND_LER[1]
+            elif len(Config.COMMAND_HAND_LER) == 1:
+                darkreg = "^\\" + Config.COMMAND_HAND_LER
+                reg = Config.COMMAND_HAND_LER
+            args["pattern"] = re.compile(darkreg + pattern)
+            if command is not None:
+                cmd = reg + command
+            else:
+                cmd = (
+                    (reg + pattern).replace("$", "").replace("\\", "").replace("^", "")
+                )
+            try:
+                CMD_LIST[file_test].append(cmd)
+            except BaseException:
                 CMD_LIST.update({file_test: [cmd]})
 
     args["outgoing"] = True
@@ -198,18 +213,139 @@ def admin_cmd(pattern=None, **args):
         args["chats"] = black_list_chats
 
     # add blacklist chats, UB should not respond in these chats
-    allow_edited_updates = False
     if "allow_edited_updates" in args and args["allow_edited_updates"]:
-        allow_edited_updates = args["allow_edited_updates"]
         del args["allow_edited_updates"]
 
     # check if the plugin should listen for outgoing 'messages'
-    is_message_enabled = True
 
     return events.NewMessage(**args)
 
 
+def sudo_cmd(pattern=None, command=None, **args):
+    args["func"] = lambda e: e.via_bot_id is None
+    stack = inspect.stack()
+    previous_stack_frame = stack[1]
+    file_test = Path(previous_stack_frame.filename)
+    file_test = file_test.stem.replace(".py", "")
+    allow_sudo = args.get("allow_sudo", False)
+    # get the pattern from the decorator
+    if pattern is not None:
+        if pattern.startswith(r"\#"):
+            # special fix for snip.py
+            args["pattern"] = re.compile(pattern)
+        elif pattern.startswith(r"^"):
+            args["pattern"] = re.compile(pattern)
+            cmd = pattern.replace("$", "").replace("^", "").replace("\\", "")
+            try:
+                SUDO_LIST[file_test].append(cmd)
+            except BaseException:
+                SUDO_LIST.update({file_test: [cmd]})
+        else:
+            if len(Config.SUDO_COMMAND_HAND_LER) == 2:
+                darkreg = "^" + Config.SUDO_COMMAND_HAND_LER
+                reg = Config.SUDO_COMMAND_HAND_LER[1]
+            elif len(Config.SUDO_COMMAND_HAND_LER) == 1:
+                darkreg = "^\\" + Config.SUDO_COMMAND_HAND_LER
+                reg = Config.COMMAND_HAND_LER
+            args["pattern"] = re.compile(darkreg + pattern)
+            if command is not None:
+                cmd = reg + command
+            else:
+                cmd = (
+                    (reg + pattern).replace("$", "").replace("\\", "").replace("^", "")
+                )
+            try:
+                SUDO_LIST[file_test].append(cmd)
+            except BaseException:
+                SUDO_LIST.update({file_test: [cmd]})
+    args["outgoing"] = True
+    # should this command be available for other users?
+    if allow_sudo:
+        args["from_users"] = list(Config.SUDO_USERS)
+        # Mutually exclusive with outgoing (can only set one of either).
+        args["incoming"] = True
+        del args["allow_sudo"]
+    # error handling condition check
+    elif "incoming" in args and not args["incoming"]:
+        args["outgoing"] = True
+    # add blacklist chats, UB should not respond in these chats
+    args["blacklist_chats"] = True
+    black_list_chats = list(Config.UB_BLACK_LIST_CHAT)
+    if black_list_chats:
+        args["chats"] = black_list_chats
+    # add blacklist chats, UB should not respond in these chats
+    if "allow_edited_updates" in args and args["allow_edited_updates"]:
+        del args["allow_edited_updates"]
+    # check if the plugin should listen for outgoing 'messages'
+    return events.NewMessage(**args)
 
+
+# https://t.me/c/1220993104/623253
+# https://docs.telethon.dev/en/latest/misc/changelog.html#breaking-changes
+async def edit_or_reply(
+    event,
+    text,
+    parse_mode=None,
+    link_preview=None,
+    file_name=None,
+    aslink=False,
+    linktext=None,
+    caption=None,
+):
+    link_preview = link_preview or False
+    reply_to = await event.get_reply_message()
+    if len(text) < 4096:
+        parse_mode = parse_mode or "md"
+        if event.sender_id in Config.SUDO_USERS:
+            if reply_to:
+                return await reply_to.reply(
+                    text, parse_mode=parse_mode, link_preview=link_preview
+                )
+            return await event.reply(
+                text, parse_mode=parse_mode, link_preview=link_preview
+            )
+        return await event.edit(text, parse_mode=parse_mode, link_preview=link_preview)
+    asciich = ["*", "`", "_"]
+    for i in asciich:
+        text = re.sub(rf"\{i}", "", text)
+    if aslink:
+        linktext = linktext or "Message was to big so pasted to bin"
+        try:
+            key = (
+                requests.post(
+                    "https://nekobin.com/api/documents", json={"content": text}
+                )
+                .json()
+                .get("result")
+                .get("key")
+            )
+            text = linktext + f" [here](https://nekobin.com/{key})"
+        except:
+            text = re.sub(r"•", ">>", text)
+            kresult = requests.post(
+                "https://del.dog/documents", data=text.encode("UTF-8")
+            ).json()
+            text = linktext + f" [here](https://del.dog/{kresult['key']})"
+        if event.sender_id in Config.SUDO_USERS:
+            if reply_to:
+                return await reply_to.reply(text, link_preview=link_preview)
+            return await event.reply(text, link_preview=link_preview)
+        return await event.edit(text, link_preview=link_preview)
+    file_name = file_name or "output.txt"
+    caption = caption or None
+    with open(file_name, "w+") as output:
+        output.write(text)
+    if reply_to:
+        await reply_to.reply(caption, file=file_name)
+        await event.delete()
+        return os.remove(file_name)
+    if event.sender_id in Config.SUDO_USERS:
+        await event.reply(caption, file=file_name)
+        await event.delete()
+        return os.remove(file_name)
+    await event.client.send_file(event.chat_id, file_name, caption=caption)
+    await event.delete()
+    os.remove(file_name)
 
 def register(**args):
     args["func"] = lambda e: e.via_bot_id is None
@@ -289,7 +425,7 @@ def errors_handler(func):
 
             text = "**USERBOT CRASH REPORT**\n\n"
 
-            link = "[here](https://t.me/marshmello_support)"
+            link = "[here](https://t.me/sn12384)"
             text += "If you wanna you can report it"
             text += f"- just forward this message {link}.\n"
             text += "Nothing is logged except the fact of error and date\n"
@@ -390,63 +526,32 @@ class Loader():
         self.Var = Var
         bot.add_event_handler(func, events.NewMessage(**args))
 
-        
-def sudo_cmd(pattern=None, **args):
-    args["func"] = lambda e: e.via_bot_id is None
-    stack = inspect.stack()
-    previous_stack_frame = stack[1]
-    file_test = Path(previous_stack_frame.filename)
-    file_test = file_test.stem.replace(".py", "")
-    allow_sudo = args.get("allow_sudo", False)
+#Assistant
+def start_assistant(shortname):
+    if shortname.startswith("__"):
+        pass
+    elif shortname.endswith("_"):
+        import importlib
+        import sys
+        from pathlib import Path
 
-    # get the pattern from the decorator
-    if pattern is not None:
-        if pattern.startswith("\#"):
-            # special fix for snip.py
-            args["pattern"] = re.compile(pattern)
-        else:
-            
-            args["pattern"] = re.compile(Config.SUDO_COMMAND_HAND_LER + pattern)
-            reg =Config.SUDO_COMMAND_HAND_LER[1]
-            cmd = (reg +pattern).replace("$", "").replace("\\", "").replace("^", "")
-            try:
-                SUDO_LIST[file_test].append(cmd)
-            except:
-                SUDO_LIST.update({file_test: [cmd]})
+        path = Path(f"userbot/plugins/assistant/{shortname}.py")
+        name = "userbot.plugins.assistant.{}".format(shortname)
+        spec = importlib.util.spec_from_file_location(name, path)
+        mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+        print("Starting Your Assistant Bot.")
+        print("Assistant Sucessfully imported " + shortname)
+    else:
+        import importlib
+        import sys
+        from pathlib import Path
 
-    args["outgoing"] = True
-    # should this command be available for other users?
-    if allow_sudo:
-        args["from_users"] = list(Config.SUDO_USERS)
-        # Mutually exclusive with outgoing (can only set one of either).
-        args["incoming"] = True
-        del args["allow_sudo"]
-
-    # error handling condition check
-    elif "incoming" in args and not args["incoming"]:
-        args["outgoing"] = True
-
-    # add blacklist chats, UB should not respond in these chats
-    args["blacklist_chats"] = True
-    black_list_chats = list(Config.UB_BLACK_LIST_CHAT)
-    if len(black_list_chats) > 0:
-        args["chats"] = black_list_chats
-
-    # add blacklist chats, UB should not respond in these chats
-    allow_edited_updates = False
-    if "allow_edited_updates" in args and args["allow_edited_updates"]:
-        allow_edited_updates = args["allow_edited_updates"]
-        del args["allow_edited_updates"]
-
-    # check if the plugin should listen for outgoing 'messages'
-    is_message_enabled = True
-
-    return events.NewMessage(**args)
-
-async def edit_or_reply(event, text):
-    if event.from_id in Config.SUDO_USERS:
-        reply_to = await event.get_reply_message()
-        if reply_to:
-            return await reply_to.reply(text)
-        return await event.reply(text)
-    return await event.edit(text)
+        path = Path(f"userbot/plugins/assistant/{shortname}.py")
+        name = "userbot.plugins.assistant.{}".format(shortname)
+        spec = importlib.util.spec_from_file_location(name, path)
+        mod = importlib.util.module_from_spec(spec)
+        mod.tgbot = bot.tgbot
+        spec.loader.exec_module(mod)
+        sys.modules["userbot.plugins.assistant" + shortname] = mod
+        print("Assistant Has imported " + shortname)     
