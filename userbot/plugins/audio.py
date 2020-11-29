@@ -1,36 +1,154 @@
+""" Google Text to Speech
+Available Commands:
+.audio LanguageCode as reply to a message
+.audio LangaugeCode | text to speak"""
 
-import datetime
-from telethon import events
-from telethon.errors.rpcerrorlist import YouBlockedUserError
-from telethon.tl.functions.account import UpdateNotifySettingsRequest
-from uniborg.util import admin_cmd
 
-@borg.on(admin_cmd("au ?(.*)"))
+
+import asyncio
+
+import os
+
+import subprocess
+
+from datetime import datetime
+
+from gtts import gTTS
+from userbot import CMD_HELP
+from userbot.utils import admin_cmd
+
+
+
+
+
+@borg.on(admin_cmd(pattern="audio (.*)"))
+
 async def _(event):
+
     if event.fwd_from:
-        return 
-    if not event.reply_to_msg_id:
-       await event.edit("```Reply to any user message.```")
-       return
-    reply_message = await event.get_reply_message() 
-    if not reply_message.text:
-       await event.edit("```reply to text message```")
-       return
-    chat = "@AudioTubeBot"
-    sender = reply_message.sender
-    if reply_message.sender.bot:
-       await event.edit("```Reply to actual users message.```")
-       return
-    await event.edit("```Processing```")
-    async with borg.conversation(chat) as conv:
-          try:     
-              response = conv.wait_event(events.NewMessage(incoming=True,from_users=507379365))
-              await borg.send_message(chat, reply_message)
-              response = await response 
-          except YouBlockedUserError: 
-              await event.reply("```Please unblock @sangmatainfo_bot and try again```")
-              return
-          if response.text.startswith("🌐"):
-             await event.edit("```can you kindly disable your forward privacy settings for good?```")
-          else: 
-             await borg.send_file(event.chat_id, response.message.message.media)
+
+        return
+
+    input_str = event.pattern_match.group(1)
+
+    start = datetime.now()
+
+    if event.reply_to_msg_id:
+
+        previous_message = await event.get_reply_message()
+
+        text = previous_message.message
+
+        lan = input_str
+
+    elif "|" in input_str:
+
+        lan, text = input_str.split("|")
+
+    else:
+
+        await event.edit("Invalid Syntax. Module stopping.")
+
+        return
+
+    text = text.strip()
+
+    lan = lan.strip()
+
+    if not os.path.isdir(Config.TMP_DOWNLOAD_DIRECTORY):
+
+        os.makedirs(Config.TMP_DOWNLOAD_DIRECTORY)
+
+    required_file_name = Config.TMP_DOWNLOAD_DIRECTORY + "voice.ogg"
+
+    try:
+
+        tts = gTTS(text, lang=lan)
+
+        tts.save(required_file_name)
+
+        command_to_execute = [
+
+            "ffmpeg",
+
+            "-i",
+
+             required_file_name,
+
+             "-map",
+
+             "0:a",
+
+             "-codec:a",
+
+             "libopus",
+
+             "-b:a",
+
+             "100k",
+
+             "-vbr",
+
+             "on",
+
+             required_file_name + ".opus"
+
+        ]
+
+        try:
+
+            t_response = subprocess.check_output(command_to_execute, stderr=subprocess.STDOUT)
+
+        except (subprocess.CalledProcessError, NameError, FileNotFoundError) as exc:
+
+            await event.edit(str(exc))
+
+            # continue sending required_file_name
+
+        else:
+
+            os.remove(required_file_name)
+
+            required_file_name = required_file_name + ".opus"
+
+        end = datetime.now()
+
+        ms = (end - start).seconds
+
+        await borg.send_file(
+
+            event.chat_id,
+
+            required_file_name,
+
+            # caption="Processed {} ({}) in {} seconds!".format(text[0:97], lan, ms),
+
+            reply_to=event.message.reply_to_msg_id,
+
+            allow_cache=False,
+
+            voice_note=True
+
+        )
+
+        os.remove(required_file_name)
+
+        await event.edit("Processed {} ({}) in {} seconds!".format(text[0:97], lan, ms))
+
+        await asyncio.sleep(0.2)
+
+        await event.delete()
+
+    except Exception as e:
+
+        await event.edit(str(e))
+
+
+CMD_HELP.update(
+    {
+        "audio": ".audio <language code> "
+        "\nUsage: reply any msg with .audio (language code) example .audio en / .audio hi\n\n"
+        ".audio <language code> | <msg> "
+        "\nUsage: convert text to Audio example .audio en|msg (note:- this | mark is important.\n\n"
+    }
+)
