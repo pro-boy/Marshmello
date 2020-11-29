@@ -13,9 +13,9 @@ pm_caption += "➥ **Current Branch** : `master`\n"
 pm_caption += f"➥ **Version** : `2.0`\n"
 pm_caption += f"➥ **My Boss** : {DEFAULTUSER} \n"
 pm_caption += "➥ **Heroku Database** : `AWS - Working Properly`\n\n"
-pm_caption += "➥ **License** : [GNU General Public License v3.0](github.com/DARK-COBRA/DARKCOBRA/blob/master/LICENSE)\n"
-pm_caption += "➥ **Copyright** : By [DarkCobra](https://t.me/Dark_cobra_support_group)\n"
-pm_caption += "[Assistant By DarkCobra](https://t.me/Dark_cobra_support_group)"
+pm_caption += "➥ **License** : [GNU General Public License v3.0](github.com/pro-boy/Marshmello/blob/main/LICENSE)\n"
+pm_caption += "➥ **Copyright** : By [MARSHMELLO](https://t.me/Dark_cobra_support_group)\n"
+pm_caption += "[Assistant By MARSHMELLO](https://t.me/Dark_cobra_support_group)"
 
 # only Owner Can Use it
 @tgbot.on(events.NewMessage(pattern="^/alive", func=lambda e: e.sender_id == bot.uid))
