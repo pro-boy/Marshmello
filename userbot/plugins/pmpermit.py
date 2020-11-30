@@ -28,11 +28,12 @@ DEFAULTUSER = (
 )
 CUSTOM_MIDDLE_PMP = str(CUSTOM_PMPERMIT) if CUSTOM_PMPERMIT else "**YOU HAVE TRESPASSED TO MY MASTERS INBOX** \n THIS IS ILLEGAL AND REGARDED AS A CRIME" 
 
-USER_BOT_WARN_ZERO = "**You were spamming my sweet master's inbox, henceforth your retarded lame ass has been blocked by my master's userbot⭕️.**\n**Now GTFO, i'm busy**"
-USER_BOT_NO_WARN = ("Hello, This Is An [Marshmello Userbot](https://t.me/Marshmello_support)  Service⚠️.\n `You have found your way here to my sweet master's`\n"
+USER_BOT_WARN_ZERO = "`You were spamming my sweet master's inbox, henceforth your retarded lame ass has been blocked by my master's userbot⭕️.`\n**Now GTFO, i'm busy**"
+USER_BOT_NO_WARN = ("`Hello, This Is An Antispam Userbot Service⚠️.You have found your way here to my sweet master's ,`"
                    f"{DEFAULTUSER}'s inbox. He is little busy right now..so please follow the below guidelines so that he can decide the reason, why are you here and approve you\n"
                    f"\n**{CUSTOM_MIDDLE_PMP}**\n\n"
-                    "❤️To Register Your Requiry Send `/start`\n"
+                    "**Mostly he is a busy person.. And told me to take care of his inbox..🤖**\n\n"
+                    "❤️Please Register Your Request/query!❤️\nSend `/start` To Register Your Request!! 🔥\n"
                     "**Okay now please send a** 🔥 `/start` 🔥 **To Start A Valid Conversation with him..!!❤**")
 
 
@@ -190,9 +191,9 @@ if Var.PRIVATE_GROUP_ID is not None:
     async def do_pm_permit_action(chat_id, event):
         if chat_id not in PM_WARNS:
             PM_WARNS.update({chat_id: 0})
-        if PM_WARNS[chat_id] == 3:
+        if PM_WARNS[chat_id] == 5:
             r = await event.reply(USER_BOT_WARN_ZERO)
-            await asyncio.sleep(3)
+            await asyncio.sleep(1)
             await event.client(functions.contacts.BlockRequest(chat_id))
             if chat_id in PREV_REPLY_MESSAGE:
                 await PREV_REPLY_MESSAGE[chat_id].delete()
@@ -237,16 +238,18 @@ async def hehehe(event):
             
             
             
-CMD_HELP.update({
-    "pmpermit":
-    "\
-.ap\
-\nUsage: Approves the mentioned/replied person to PM.\
-.dap\
-\nUsage: dispproves the mentioned/replied person to PM.\
-\n\n.block\
-\nUsage: Blocks the person.\
-\n\n.listap\
-\nUsage: To list the all approved users.\
-"
-})
+CMD_HELP.update(
+    {
+        "pmpermit": "__**PLUGIN NAME :** pm permit__\
+    \n\n📌** CMD ★** `.ap`\
+    \n**USAGE   ★  **Used to approve a person in personal chat..\
+    \n\n📌** CMD ★** `.dap`\
+    \n**USAGE   ★  **Used to disapprove a person in personal chat..\
+    \n\n📌** CMD ★** `.block`\
+    \n**USAGE   ★  **Used to block a person in personal chat.. But never mess with the Devs\
+    \n\n📌** CMD ★** `.listap`\
+    \n**USAGE   ★  **List of approved users whom you have approved till now...!\
+    \n\n📌** CMD ★** `auto approved cuz outgoing messages`\
+    \n**USAGE   ★  **This is the case when you message someone first then they will get approved by your userbot automatically.."
+    }
+)

@@ -36,7 +36,7 @@ async def fastpurger(purg):
         await purg.client.delete_messages(chat, msgs)
     done = await purg.client.send_message(
         purg.chat_id,
-        "`Fast purge complete by Marshmello Userbot!\n`Purged " + str(count) + " messages.",
+        "`Fast purge complete!\n`Purged " + str(count) + " messages.",
     )
 
     if BOTLOG:

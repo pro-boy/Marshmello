@@ -4,14 +4,12 @@ Available Commands:
 .tr LangaugeCode | text to translate"""
 
 import emoji
+from userbot import CMD_HELP
 from googletrans import Translator
 from userbot.utils import admin_cmd
-from telethon import events
 
 
-
-@borg.on(admin_cmd(pattern="tr ?(.*)"))
-@borg.on(events.NewMessage(pattern=r"\.tr ?(.*)",incoming=True))
+@borg.on(admin_cmd("tr ?(.*)"))
 async def _(event):
     if event.fwd_from:
         return
@@ -22,7 +20,7 @@ async def _(event):
     if event.reply_to_msg_id:
         previous_message = await event.get_reply_message()
         text = previous_message.message
-        lan = input_str or "gu"
+        lan = input_str or "en"
     elif "|" in input_str:
         lan, text = input_str.split("|")
     else:
@@ -36,10 +34,8 @@ async def _(event):
         after_tr_text = translated.text
         # TODO: emojify the :
         # either here, or before translation
-        output_str = """**Translated By 𝔻𝔸ℝ𝕂 ℂ𝕆𝔹ℝ𝔸** 
-         Source **( {} )**
-         Translation **( {} )**
-         {}""".format(
+        output_str = """**Translated By 𝔻𝔸ℝ𝕂 ℂ𝕆𝔹ℝ𝔸** from {} to {}
+{}""".format(
             translated.src,
             lan,
             after_tr_text
@@ -47,3 +43,11 @@ async def _(event):
         await event.edit(output_str)
     except Exception as exc:
         await event.edit(str(exc))
+CMD_HELP.update(
+    {
+        "translate": ".tr <language code> <reply to text>"
+        "\nUsage: reply any msg with .tr (language code) example .tr en / .tr hi\n\n"
+        ".tr <language code> | <msg> "
+        "\nUsage: translate text example .tr en|msg (note:- this | mark is important.\n\n"
+    }
+)
