@@ -10,7 +10,7 @@ from userbot.utils import edit_or_reply as eor
 
 DELETE_TIMEOUT = 5
 thumb_image_path = "./Resources/photo_2020-11-05_16-54-01.jpg"
-DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "DarkCobra"
+DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "DarkCobra se kanged hai"
 
 
 @bot.on(admin_cmd(pattern=r"send (?P<shortname>\w+)", outgoing=True))
@@ -92,7 +92,7 @@ async def unload(event):
         qwe = await eor(event, f"DarkCobra Has Successfully unloaded {shortname}")
     except Exception as e:
         await qwe.edit(
-            "Darkcobra has Successfully unloaded {shortname}\n{}".format(shortname, str(e))
+            "Marshmello has Successfully unloaded {shortname}\n{}".format(shortname, str(e))
         )
 
 
@@ -111,5 +111,5 @@ async def load(event):
         qwe = await eor(event, f"Successfully loaded {shortname}")
     except Exception as e:
         await qwe.edit(
-            f"DarkCobra could not load {shortname} because of the following error.\n{str(e)}"
+            f"Marshmello could not load {shortname} because of the following error.\n{str(e)}"
         )
