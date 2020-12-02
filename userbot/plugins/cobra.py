@@ -17,7 +17,7 @@ from telethon import events, errors, custom, functions
 from userbot import CMD_LIST, CMD_HELP
 import io
 
-#Making The Back Command Was The Toughest Work #by @Shivam_Patel,@The_Siddharth_Nigam,@danish_00,@ProgrammingError also v changed Pop up or inline help to text
+#Making The Back Command Was The Toughest Work #by @Shivam_Patel,@The_Siddharth_Nigam,sexygirlbhaibhigandu sab@danish_00,@ProgrammingError also v changed Pop up or inline help to text
 if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
 
     @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"back")))
@@ -89,7 +89,7 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
             
             await event.edit(buttons=dc)
         else:
-              reply_pop_up_alert = "Please get your own Userbot😁😁,for more info visit @DARK_COBRA_SUPPORT! 😎😎"
+              reply_pop_up_alert = "Please get your own Userbot😁😁! 😎😎"
               await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
  #hehehehehhehhehhehe   
     @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"close")))
@@ -98,7 +98,7 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
             dc = custom.Button.inline("ορєи мαιи мєиυ αgαιи", data="open")
             await event.edit("`Main Menu Has Been Closed by Marshmello`", buttons=dc)
         else:
-            reply_pop_up_alert = "Please get your own Userbot😁😁,for more info visit @DARK_COBRA_SUPPORT! 😎😎"
+            reply_pop_up_alert = "Please get your own Userbot😁😁 😎😎"
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
     
   
@@ -109,7 +109,7 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
     )
     async def on_plug_in_callback_query_handler(event):
         if not event.query.user_id == bot.uid:
-            cobra = "Please get your own Userbot😁😁,for more info visit @DARK_COBRA_SUPPORT! 😎😎"
+            cobra = "Please get your own Userbot😁😁 😎😎"
             await event.answer(cobra, cache_time=0, alert=True)
             return
         plugin_name = event.data_match.group(1).decode("UTF-8")
@@ -125,7 +125,7 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
 
         reply_pop_up_alert = help_string
         reply_pop_up_alert += (
-            "\n\n Use .unload {} to remove this plugin\n ©DARK COBRA Userbot".format(plugin_name)
+            "\n\n Use .unload {} to remove this plugin\n ©MARSHMELLO Userbot".format(plugin_name)
         )
         dc = [
             custom.Button.inline("мαιи мєиυ", data="back"),
