@@ -26,9 +26,9 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
             if event.query.user_id == bot.uid :
                 current_page_number=0
                 dc = paginate_help(current_page_number, CMD_LIST, "helpme")
-                await event.edit("`>>>\n\nHere Is The Main Menu Of\n©DARKCOBRA`", buttons=dc)
+                await event.edit("`>>>>\nHere Is The Main Menu Of\n©Marshmello`", buttons=dc)
             else:
-                reply_pop_up_alert = "Please get your own Userbot,for more info visit @DARK_COBRA_SUPPORT!"
+                reply_pop_up_alert = "Bhaggg Behenchod Khud ka bana mera kyu le raha hai Gandu!"
                 await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
     @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"open")))
@@ -37,9 +37,9 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
             if event.query.user_id == bot.uid :
                 current_page_number=0
                 dc = paginate_help(current_page_number, CMD_LIST, "helpme")
-                await event.edit("`>>>\n\nReopened The Main Menu of \n©DARKCOBRA` ", buttons=dc)
+                await event.edit("`>>>\n\nReopened The Main Menu of \n©MARSHMELLO` ", buttons=dc)
             else:
-                reply_pop_up_alert = "Please get your own Userbot,for more info visit @DARK_COBRA_SUPPORT!"
+                reply_pop_up_alert = "AYE MADARCHOD KHUD KA BANA MERA USE MAT KAR!"
                 await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
                
 
@@ -54,7 +54,7 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
             result = builder.article("© Userbot Help",text="{}\nCurrently Loaded Plugins: {}".format(query, len(CMD_LIST)),buttons=dc,link_preview=False)
             await event.answer([result] if result else None)
         else:
-              reply_pop_up_alert = "Please get your own Userbot😁😁,for more info visit @DARK_COBRA_SUPPORT! 😎😎"
+              reply_pop_up_alert = "TERI MAA KA BHOSDA KHUD KA BANA MERA MAT DEKH"
               await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
     @tgbot.on(events.callbackquery.CallbackQuery(  # pylint:disable=E0602
         data=re.compile(b"helpme_next\((.+?)\)")
@@ -95,8 +95,8 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
     @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"close")))
     async def on_plug_in_callback_query_handler(event):
         if event.query.user_id == bot.uid:
-            dc = custom.Button.inline("◤✞ 𝕺𝖕𝖊𝖓 𝕸𝖆𝖎𝖓 𝕸𝖊𝖓𝖚 𝕬𝖌𝖆𝖎𝖓 ✞◥", data="open")
-            await event.edit("`Main Menu Has Been Closed`", buttons=dc)
+            dc = custom.Button.inline("ορєи мαιи мєиυ αgαιи", data="open")
+            await event.edit("`Main Menu Has Been Closed by Marshmello`", buttons=dc)
         else:
             reply_pop_up_alert = "Please get your own Userbot😁😁,for more info visit @DARK_COBRA_SUPPORT! 😎😎"
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
@@ -128,8 +128,8 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
             "\n\n Use .unload {} to remove this plugin\n ©DARK COBRA Userbot".format(plugin_name)
         )
         dc = [
-            custom.Button.inline("◤✞ 𝕸𝖆𝖎𝖓 𝕸𝖊𝖓𝖚 ✞◥", data="back"),
-            custom.Button.inline("◤✞ 𝕮𝖑𝖔𝖘𝖊 ✞◥", data="close"),
+            custom.Button.inline("мαιи мєиυ", data="back"),
+            custom.Button.inline("clօsҽ", data="close"),
         ]
         if len(reply_pop_up_alert) >= 4096:
             crackexy = "`Pasting Your Help Menu.`"
@@ -166,9 +166,9 @@ def paginate_help(page_number, loaded_plugins, prefix):
     if len(pairs) > number_of_rows:
         pairs = pairs[modulo_page * number_of_rows:number_of_rows * (modulo_page + 1)] + \
             [
-            (custom.Button.inline("◃:✮𝙿𝚁𝙴𝚅.❃", data="{}_prev({})".format(prefix, modulo_page)),
-             custom.Button.inline("⋇⋆𝙲𝙻✦𝚂𝙴⋆⋇", data="close"),
-             custom.Button.inline("❃.𝙽𝙴𝚇𝚃✮:▹", data="{}_next({})".format(prefix, modulo_page)))
+            (custom.Button.inline("ճαck", data="{}_prev({})".format(prefix, modulo_page)),
+             custom.Button.inline("clօsҽ", data="close"),
+             custom.Button.inline("иєxτ", data="{}_next({})".format(prefix, modulo_page)))
         ]
     return pairs
 
