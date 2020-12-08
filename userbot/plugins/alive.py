@@ -40,7 +40,7 @@ pm_caption += "➥ **Python** : 3.8.6\n"
 pm_caption += "➥ **Database Status**  : Functional\n"
 pm_caption += "➥ **Current Branch** : Master\n"
 pm_caption += "➥ **Version** : 2.0\n"
-pm_caption += f"➥ **ᴍʏ ᴍᴀsᴛᴇʀ** : [{DEFAULTUSER}](tg://user?id={ghanti})\n"
+pm_caption += f"➥ **ᴍʏ ᴍᴀsᴛᴇʀ** : [{DEFAULTUSER}](tg://user?id={ghanti})\n\n"
 pm_caption += "➥ **My Creator** : @Beast_boy_shubu"
 
 @borg.on(admin_cmd(pattern=r"mello"))
