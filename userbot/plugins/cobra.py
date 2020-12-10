@@ -69,7 +69,7 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
 #hehehehehheh           
             await event.edit(buttons=dc)
         else:
-            reply_pop_up_alert = "Please get your own Userbot, and don't use mine for more info visit @DARK_COBRA_SUPPORT!"
+            reply_pop_up_alert = "TERI MAA KA BHOSDA KHUD KA BANA MERA MAT DEKH!"
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
 #hehhehehehhehhehhehehhe
