@@ -1,10 +1,10 @@
 # 𐌑𐌀𐍂𐍃𐋏𐌑𐌄𐌋𐌋𐍈
 
-Marshmello Is Most Powerful And awaited Bot.
+Marshmello Is Most Powerful And awaited Bot it has 300+ plugins.
 
 # About
 
-It is a userbot made for telegram. I made this userbot with help of Dark Cobra userbot. Credit Goes To Hellboi_atul.
+It is a userbot made for telegram. I made this userbot with help of Dark Cobra userbot. Credit Goes To Hellboi_atul and Danish Bro .
 
 This is the one and only official Marshmello Userbot made by [boss_DJ](https://t.me/beast_boy_shubh) Also join support channel and group :- https://t.me/Marshmellobot_officiall
 
