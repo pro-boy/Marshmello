@@ -32,7 +32,7 @@ file2 = "https://telegra.ph/file/c0599623d92b08e4566b4.jpg"
 file3 = "https://telegra.ph/file/deb9b930fb2206d042b17.jpg"
 file4 = "https://telegra.ph/file/5d87307ce8d9d8ba943c5.jpg"
 """ =======================CONSTANTS====================== """
-pm_caption = "**Your not that pro to see my alive but still dheklo bhai😂🤟
+pm_caption = "**Your not that pro to see my alive but still dheklo bhai😂🤟**\n\n"
 pm_caption += "** Marshmello 𝙸𝚂 𝙾𝙽𝙻𝙸𝙽𝙴**\n\n"
 pm_caption += "**Yes Master, Am Alive And Systems Are Working Perfectly As It Should Be...**\n\n"
 pm_caption += "BOT STATUS\n\n"
