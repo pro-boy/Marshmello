@@ -41,28 +41,7 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
             else:
                 reply_pop_up_alert = "AYE MADARCHOD KHUD KA BANA MERA USE MAT KAR!"
                 await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
-      if tebot:
-
- @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"secret_(.*)")))
- async def on_plug_in_callback_query_handler(event):
-        me = await client.get_me()
-        timestamp = int(event.pattern_match.group(1).decode("UTF-8"))
-        if os.path.exists("./userbot/secrets.txt"):
-            jsondata = json.load(open("./userbot/secrets.txt"))
-            try:
-                message = jsondata[f"{timestamp}"]
-                userid = message["userid"]
-                ids = [userid, me.id]
-                if event.query.user_id in ids:
-                    encrypted_tcxt = message["text"]
-                    reply_pop_up_alert = encrypted_tcxt
-                else:
-                    reply_pop_up_alert = "why were you looking at this  go away and do your own work"
-            except KeyError:
-                reply_pop_up_alert = "This message no longer exists in bot server"
-        else:
-            reply_pop_up_alert = "This message no longer exists "
-        await event.answer(reply_pop_up_alert, cache_time=0, alert=True)         
+               
 
     @tgbot.on(events.InlineQuery)  # pylint:disable=E0602
     async def inline_handler(event):
@@ -122,7 +101,100 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
             reply_pop_up_alert = "Please get your own Userbot😁😁 😎😎"
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
     
-  if tebot:
+if tebot:
+
+ @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"secret_(.*)")))
+ async def on_plug_in_callback_query_handler(event):
+        me = await client.get_me()
+        timestamp = int(event.pattern_match.group(1).decode("UTF-8"))
+        if os.path.exists("./userbot/secrets.txt"):
+            jsondata = json.load(open("./userbot/secrets.txt"))
+            try:
+                message = jsondata[f"{timestamp}"]
+                userid = message["userid"]
+                ids = [userid, me.id]
+                if event.query.user_id in ids:
+                    encrypted_tcxt = message["text"]
+                    reply_pop_up_alert = encrypted_tcxt
+                else:
+                    reply_pop_up_alert = "why were you looking at this  go away and do your own work"
+            except KeyError:
+                reply_pop_up_alert = "This message no longer exists in bot server"
+        else:
+            reply_pop_up_alert = "This message no longer exists "
+        await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
+
+    @tgbot.on(
+        events.callbackquery.CallbackQuery(  # pylint:disable=E0602
+            data=re.compile(b"us_plugin_(.*)")
+        )
+    )
+    async def on_plug_in_callback_query_handler(event):
+        if not event.query.user_id == bot.uid:
+            cobra = "Please get your own Userbot😁😁 😎😎"
+            await event.answer(cobra, cache_time=0, alert=True)
+            return
+        plugin_name = event.data_match.group(1).decode("UTF-8")
+        help_string = "Commands found in {}:\n".format(plugin_name)
+        for i in CMD_LIST[plugin_name]:
+            help_string += "💎 " + i + "\n\n"
+        if plugin_name in CMD_HELP:
+            help_string += (
+                f"**📤 PLUGIN NAME 📤 :** `{plugin_name}` \n\n{CMD_HELP[plugin_name]}"
+            )
+        else:
+            help_string += " CMD_HELP not set yet for {} 😅😅".format(plugin_name)
+
+        reply_pop_up_alert = help_string
+        reply_pop_up_alert += (
+            "\n\n Use .unload {} to remove this plugin\n ©MARSHMELLO Userbot".format(plugin_name)
+        )
+        dc = [
+            custom.Button.inline("мαιи мєиυ", data="back"),
+            custom.Button.inline("clօsҽ", data="close"),
+        ]
+        if len(reply_pop_up_alert) >= 4096:
+            crackexy = "`Pasting Your Help Menu.`"
+            await event.answer(crackexy, cache_time=0, alert=True)
+            out_file = reply_pop_up_alert
+            url = "https://del.dog/documents"
+            r = requests.post(url, data=out_file.encode("UTF-8")).json()
+            url = f"https://del.dog/{r['key']}"
+#hehehhehhehehheheh
+            await event.edit(
+                f"Pasted {plugin_name} to {url}", link_preview=False, buttons=dc
+            )
+        else:
+            await event.edit(message=reply_pop_up_alert, buttons=dc)
+
+def paginate_help(page_number, loaded_plugins, prefix):
+    number_of_rows = Config.NO_OF_BUTTONS_DISPLAYED_IN_H_ME_CMD
+    number_of_cols = Config.NO_OF_COLOUMS_DISPLAYED_IN_H_ME_CMD
+    multi = Config.EMOJI_TO_DISPLAY_IN_HELP
+    helpable_plugins = []
+    for p in loaded_plugins:
+        if not p.startswith("_"):
+            helpable_plugins.append(p)
+    helpable_plugins = sorted(helpable_plugins)
+    modules = [custom.Button.inline(
+        "{} {}".format(random.choice(list(multi)), x),
+        data="us_plugin_{}".format(x))
+        for x in helpable_plugins]
+    pairs = list(zip(modules[::number_of_cols], modules[1::number_of_cols]))
+    if len(modules) % number_of_cols == 1:
+        pairs.append((modules[-1],))
+    max_num_pages = ceil(len(pairs) / number_of_rows)
+    modulo_page = page_number % max_num_pages
+    if len(pairs) > number_of_rows:
+        pairs = pairs[modulo_page * number_of_rows:number_of_rows * (modulo_page + 1)] + \
+            [
+            (custom.Button.inline("ճαck", data="{}_prev({})".format(prefix, modulo_page)),
+             custom.Button.inline("clօsҽ", data="close"),
+             custom.Button.inline("иєxτ", data="{}_next({})".format(prefix, modulo_page)))
+        ]
+    return pairs
+
+if tebot:
 
  @tebot.on(events.InlineQuery)  
 
@@ -243,76 +315,6 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
             else:
 
                 json.dump(newsecret, open(secret, "w"))
-
-    @tgbot.on(
-        events.callbackquery.CallbackQuery(  # pylint:disable=E0602
-            data=re.compile(b"us_plugin_(.*)")
-        )
-    )
-    async def on_plug_in_callback_query_handler(event):
-        if not event.query.user_id == bot.uid:
-            cobra = "Please get your own Userbot😁😁 😎😎"
-            await event.answer(cobra, cache_time=0, alert=True)
-            return
-        plugin_name = event.data_match.group(1).decode("UTF-8")
-        help_string = "Commands found in {}:\n".format(plugin_name)
-        for i in CMD_LIST[plugin_name]:
-            help_string += "💎 " + i + "\n\n"
-        if plugin_name in CMD_HELP:
-            help_string += (
-                f"**📤 PLUGIN NAME 📤 :** `{plugin_name}` \n\n{CMD_HELP[plugin_name]}"
-            )
-        else:
-            help_string += " CMD_HELP not set yet for {} 😅😅".format(plugin_name)
-
-        reply_pop_up_alert = help_string
-        reply_pop_up_alert += (
-            "\n\n Use .unload {} to remove this plugin\n ©MARSHMELLO Userbot".format(plugin_name)
-        )
-        dc = [
-            custom.Button.inline("мαιи мєиυ", data="back"),
-            custom.Button.inline("clօsҽ", data="close"),
-        ]
-        if len(reply_pop_up_alert) >= 4096:
-            crackexy = "`Pasting Your Help Menu.`"
-            await event.answer(crackexy, cache_time=0, alert=True)
-            out_file = reply_pop_up_alert
-            url = "https://del.dog/documents"
-            r = requests.post(url, data=out_file.encode("UTF-8")).json()
-            url = f"https://del.dog/{r['key']}"
-#hehehhehhehehheheh
-            await event.edit(
-                f"Pasted {plugin_name} to {url}", link_preview=False, buttons=dc
-            )
-        else:
-            await event.edit(message=reply_pop_up_alert, buttons=dc)
-
-def paginate_help(page_number, loaded_plugins, prefix):
-    number_of_rows = Config.NO_OF_BUTTONS_DISPLAYED_IN_H_ME_CMD
-    number_of_cols = Config.NO_OF_COLOUMS_DISPLAYED_IN_H_ME_CMD
-    multi = Config.EMOJI_TO_DISPLAY_IN_HELP
-    helpable_plugins = []
-    for p in loaded_plugins:
-        if not p.startswith("_"):
-            helpable_plugins.append(p)
-    helpable_plugins = sorted(helpable_plugins)
-    modules = [custom.Button.inline(
-        "{} {}".format(random.choice(list(multi)), x),
-        data="us_plugin_{}".format(x))
-        for x in helpable_plugins]
-    pairs = list(zip(modules[::number_of_cols], modules[1::number_of_cols]))
-    if len(modules) % number_of_cols == 1:
-        pairs.append((modules[-1],))
-    max_num_pages = ceil(len(pairs) / number_of_rows)
-    modulo_page = page_number % max_num_pages
-    if len(pairs) > number_of_rows:
-        pairs = pairs[modulo_page * number_of_rows:number_of_rows * (modulo_page + 1)] + \
-            [
-            (custom.Button.inline("ճαck", data="{}_prev({})".format(prefix, modulo_page)),
-             custom.Button.inline("clօsҽ", data="close"),
-             custom.Button.inline("иєxτ", data="{}_next({})".format(prefix, modulo_page)))
-        ]
-    return pairs
 
 # chal nikal 
 # gtfo
