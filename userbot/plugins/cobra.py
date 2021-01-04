@@ -41,7 +41,28 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
             else:
                 reply_pop_up_alert = "AYE MADARCHOD KHUD KA BANA MERA USE MAT KAR!"
                 await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
-               
+      if tebot:
+
+ @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"secret_(.*)")))
+ async def on_plug_in_callback_query_handler(event):
+        me = await client.get_me()
+        timestamp = int(event.pattern_match.group(1).decode("UTF-8"))
+        if os.path.exists("./userbot/secrets.txt"):
+            jsondata = json.load(open("./userbot/secrets.txt"))
+            try:
+                message = jsondata[f"{timestamp}"]
+                userid = message["userid"]
+                ids = [userid, me.id]
+                if event.query.user_id in ids:
+                    encrypted_tcxt = message["text"]
+                    reply_pop_up_alert = encrypted_tcxt
+                else:
+                    reply_pop_up_alert = "why were you looking at this  go away and do your own work"
+            except KeyError:
+                reply_pop_up_alert = "This message no longer exists in bot server"
+        else:
+            reply_pop_up_alert = "This message no longer exists "
+        await event.answer(reply_pop_up_alert, cache_time=0, alert=True)         
 
     @tgbot.on(events.InlineQuery)  # pylint:disable=E0602
     async def inline_handler(event):
@@ -101,7 +122,128 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
             reply_pop_up_alert = "Please get your own Userbot😁😁 😎😎"
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
     
-  
+  if tebot:
+
+ @tebot.on(events.InlineQuery)  
+
+ async def inline_handler(event):
+
+  me = await client.get_me()  
+
+  builder = event.builder
+
+  query = event.text
+
+  split = query.split(' ', 1) 
+
+  result = None 
+
+  hmm = re.compile("secret (.*) (.*)") 
+
+  match = re.findall(hmm, query)
+
+  if event.query.user_id == me.id and match:
+
+            query = query7:]
+
+            user, txct = query.split(" ", 1)
+
+            builder = event.builder
+
+            secret = os.path.join("./userbot", "secrets.txt")
+
+            try:
+
+                jsondata = json.load(open(secret))
+
+            except:
+
+                jsondata = False
+
+            try:
+
+                # if u is user id
+
+                u = int(user)
+
+                try:
+
+                    u = await event.client.get_entity(u)
+
+                    if u.username:
+
+                        sandy = f"@{u.username}"
+
+                    else:
+
+                        sandy = f"[{u.first_name}"
+
+                except ValueError:
+
+                    # ValueError: Could not find the input entity
+
+                    sandy = f"user"
+
+            except ValueError:
+
+                # if u is username
+
+                try:
+
+                    u = await event.client.get_entity(user)
+
+                except ValueError:
+
+                    return
+
+                if u.username:
+
+                    sandy = f"@{u.username}"
+
+                else:
+
+                    sandy = f"{u.first_name}"
+
+                u = int(u.id)
+
+            except:
+
+                return
+
+            timestamp = int(time.time() * 2)
+
+            newsecret = {str(timestamp): {"userid": u, "text": txct}}
+
+
+
+            buttons = [
+
+                custom.Button.inline("Show Message ð", data=f"secret_{timestamp}")
+
+            ]
+
+            result = builder.article(
+
+                title=f"Whisper To {sandy}",
+
+                text=f"ð A whisper message to {sandy}, Only he/she can open it.",
+
+                buttons=buttons,
+
+            )
+
+            await event.answer([result] if result else None)
+
+            if jsondata:
+
+                jsondata.update(newsecret)
+
+                json.dump(jsondata, open(secret, "w"))
+
+            else:
+
+                json.dump(newsecret, open(secret, "w"))
+
     @tgbot.on(
         events.callbackquery.CallbackQuery(  # pylint:disable=E0602
             data=re.compile(b"us_plugin_(.*)")
