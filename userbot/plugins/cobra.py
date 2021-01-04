@@ -101,29 +101,7 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
             reply_pop_up_alert = "Please get your own Userbot😁😁 😎😎"
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
     
-if tebot:
-
- @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"secret_(.*)")))
- async def on_plug_in_callback_query_handler(event):
-        me = await client.get_me()
-        timestamp = int(event.pattern_match.group(1).decode("UTF-8"))
-        if os.path.exists("./userbot/secrets.txt"):
-            jsondata = json.load(open("./userbot/secrets.txt"))
-            try:
-                message = jsondata[f"{timestamp}"]
-                userid = message["userid"]
-                ids = [userid, me.id]
-                if event.query.user_id in ids:
-                    encrypted_tcxt = message["text"]
-                    reply_pop_up_alert = encrypted_tcxt
-                else:
-                    reply_pop_up_alert = "why were you looking at this  go away and do your own work"
-            except KeyError:
-                reply_pop_up_alert = "This message no longer exists in bot server"
-        else:
-            reply_pop_up_alert = "This message no longer exists "
-        await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
-
+  
     @tgbot.on(
         events.callbackquery.CallbackQuery(  # pylint:disable=E0602
             data=re.compile(b"us_plugin_(.*)")
@@ -193,6 +171,29 @@ def paginate_help(page_number, loaded_plugins, prefix):
              custom.Button.inline("иєxτ", data="{}_next({})".format(prefix, modulo_page)))
         ]
     return pairs
+
+if tebot:
+
+ @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"secret_(.*)")))
+ async def on_plug_in_callback_query_handler(event):
+        me = await client.get_me()
+        timestamp = int(event.pattern_match.group(1).decode("UTF-8"))
+        if os.path.exists("./userbot/secrets.txt"):
+            jsondata = json.load(open("./userbot/secrets.txt"))
+            try:
+                message = jsondata[f"{timestamp}"]
+                userid = message["userid"]
+                ids = [userid, me.id]
+                if event.query.user_id in ids:
+                    encrypted_tcxt = message["text"]
+                    reply_pop_up_alert = encrypted_tcxt
+                else:
+                    reply_pop_up_alert = "why were you looking at this  go away and do your own work"
+            except KeyError:
+                reply_pop_up_alert = "This message no longer exists in bot server"
+        else:
+            reply_pop_up_alert = "This message no longer exists "
+        await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
 if tebot:
 
