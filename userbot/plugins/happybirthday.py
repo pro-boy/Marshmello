@@ -9,7 +9,7 @@ import importlib.util
 
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Unknown"
 
-@borg.on(admin_cmd(pattern="hbty$"))
+@borg.on(admin_cmd(pattern="happybirthday"))
 
 async def _(event):
     if event.fwd_from:
