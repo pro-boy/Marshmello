@@ -1,10 +1,5 @@
-# Darkcobra Original 🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍
-# kangers Keep Credits 😒😒😒😒😒😒😒😒😒😒😒😒😒😒😒😒😒
-# Made by Dc-Team
-# Don't remove these lines u fool ,,, 
-#
-#
-#hehehhe
+#   I am Legend
+
 
 from math import ceil
 import asyncio
@@ -247,9 +242,9 @@ def paginate_help(page_number, loaded_plugins, prefix):
     if len(pairs) > number_of_rows:
         pairs = pairs[modulo_page * number_of_rows:number_of_rows * (modulo_page + 1)] + \
             [
-            (custom.Button.inline("ճαck", data="{}_prev({})".format(prefix, modulo_page)),
-             custom.Button.inline("clօsҽ", data="close"),
-             custom.Button.inline("иєxτ", data="{}_next({})".format(prefix, modulo_page)))
+            (custom.Button.inline("◀️ ᏰᎯᏣᏦ", data="{}_prev({})".format(prefix, modulo_page)),
+             custom.Button.inline("ᴄʟᴏsᴇ", data="close"),
+             custom.Button.inline("ᏁᏋﾒᎿ ▶️", data="{}_next({})".format(prefix, modulo_page)))
         ]
     return pairs
 
