@@ -119,7 +119,7 @@ async def amireallyalive(alive):
         pm_caption += "Creator                 : [BOSS-DJ](https://t.me/Beast_boy_shubu)\n"
         pm_caption += "Bot Status              : Working perfectly\n"
         pm_caption += "𝘓𝘐𝘚𝘌𝘕𝘊𝘌                  : [AGPL-3.0  ʟɪᴄᴇɴꜱᴇ](https://jenaatul8.wixsite.com/Beast_boy_shubu)\n"
-        pm_caption += "𝘾𝙊𝙋𝙔𝙍𝙄𝙂𝙃𝙏 𝘽𝙔            : [ MARSHMELLO ](https://t.me/Marshmello_op)\n"7
+        pm_caption += "𝘾𝙊𝙋𝙔𝙍𝙄𝙂𝙃𝙏 𝘽𝙔            : [ MARSHMELLO ](https://t.me/Marshmello_op)\n"
         pm_caption += "[┏┓━┏┓━━━━┏┓━┏┓━━━━━\n ┃┃━┃┃━━━━┃┃━┃┃━━━━━\n ┃┗━┛┃┏━━┓┃┃━┃┃━┏━━┓\n ┃┏━┓┃┃┏┓┃┃┃━┃┃━┃┏┓┃ \n ┃┃━┃┃┃┃━┫┃┗┓┃┗┓┃┗┛┃ \n ┗┛━┗┛┗━━┛┗━┛┗━┛┗━━┛](https://t.me/Cyber_legendss)"
         chat = await alive.get_chat()
         await alive.delete()
