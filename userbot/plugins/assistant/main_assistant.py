@@ -40,6 +40,7 @@ async def start(event):
     replied_user = await event.client(GetFullUserRequest(event.sender_id))
     firstname = replied_user.user.first_name
     vent = event.chat_id
+    mypic = "https://t.me/useless_x/2"
     starttext = f"Hello, {firstname} ! Nice To Meet You, Well I Am {bot_id}, An Powerfull Assistant Bot. \n\nMy [➤ Master](tg://user?id={bot.uid}) \nYou Can Talk/Contact My Master Using This Bot. \n\nIf You Want Your Own Assistant You Can Deploy From Button Below. \n\nPowered By [Marshmello](https://t.me/MarshmelloBot_officiall) \n. Hit This To check my commands --> /help"
     if event.sender_id == bot.uid:
         await tgbot.send_message(
